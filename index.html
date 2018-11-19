@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./todo.css">
+</head>
+<body>
+  <header>
+    <div class="date"><div class="day">16</div><span><p id="month">Sep</p><p id="year">2018</p></span></div>
+    <div class="week-day">Sunday</div>
+  </header>
+  <main>
+    <header>
+      <input type="text" id="todoInput">
+    </header>
+    <section id="todos">
+      <div class="panel">
+        <div class="task-selector">
+          <input type="checkbox" id="changeAll" hidden>
+          <label for="changeAll">"</label>
+        </div>
+        <div class="filter">
+          <input type="radio" name="filter" id="all" checked hidden>
+          <label for="all">全选</label>
+          <input type="radio" name="filter" id="active" hidden>
+          <label for="active">活跃</label>
+          <input type="radio" name="filter" id="complete" hidden>
+          <label for="complete">完成</label>
+        </div>
+        <span class="clear-button" id="clear">清除全部</span>
+      </div>
+      <ul class="todo-list" id="todoList">
+      </ul>
+    </section>
+  </main>
+  <script src="./main.js"></script>
+</body>
+</html>

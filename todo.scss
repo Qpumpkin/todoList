@@ -1,0 +1,198 @@
+$textBgColor: #F7FCFA;
+
+html {
+  width: 100%;
+  height: 100%;
+  background: #F0EFE9;
+}
+
+body {
+  // margin防滚动条抖动
+  margin: 1.25rem auto;
+  margin: 1.25rem calc(50% - 21.875rem) 1.25rem calc(50vw - 21.875rem);
+  padding: 50px;
+  width: 600px;
+  border-radius: 3px;
+  background: #fff;
+
+  >header {
+    // 直接在容器中设置行高为0
+    position: relative;
+    margin: 0 auto;
+    line-height: 0;
+
+    >.date {
+      display: inline-block;
+
+      .day {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 3.125rem;
+      }
+
+      span {
+        //容器高度全部由span撑起;
+        display: inline-block;
+        line-height: 1.875rem;
+
+        >p {
+          margin: 0;
+
+          &:first-child {
+            margin-bottom: -0.625rem;
+          }
+        }
+      }
+    }
+
+    >.week-day {
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      line-height: 3.125rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  main {
+    header {
+      margin-top: 1.25rem;
+      padding: 0;
+
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 3.125rem;
+        padding: .9375rem .3125rem;
+        border: .5px solid #111;
+        font-size: 1.125rem;
+        background: #fff;
+        transition-duration: .5s;
+
+        &:focus {
+          box-shadow: 0px 1px 2px #000;
+        }
+      }
+    }
+
+    .panel {
+      overflow: hidden;
+      margin-top: 1.25rem;
+
+      .task-selector {
+        display: inline-block;
+
+        input:checked+label::after {
+          position: absolute;
+          top: 0;
+          left: .25rem;
+          content: "✔";
+          display: block;
+          margin: 0 auto;
+        }
+
+        label::first-letter {
+          font-size: 0;
+        }
+
+        label {
+          display: inline-block;
+          position: relative;
+          width: 1.25rem;
+          height: 1.25rem;
+          border: .125rem solid #111;
+          border-radius: 3px;
+        }
+      }
+
+      .filter {
+        display: inline-block;
+        margin-left: 15%;
+        width: 50%;
+        text-align: center;
+
+        input:checked+label {
+          background: #111;
+          color: #fff;
+        }
+
+        label {
+          display: inline-block;
+          margin: 0 1rem;
+          padding: .1875rem .4375rem;
+          border: .09375rem solid #111;
+          text-align: justify;
+          border-radius: .1875rem;
+        }
+      }
+
+      .clear-button {
+        float: right;
+        padding: .1875rem .4375rem;
+        border-radius: .1875rem;
+        border: .09375rem solid #111;
+      }
+
+    }
+
+    .todo-list {
+      list-style: none;
+      padding: 0;
+
+      &.active .done {
+        display: none;
+      }
+
+      &.complete .active {
+        display: none;
+      }
+
+      .todo {
+        padding: .9375rem .625rem .9375rem 0;
+
+        &:hover,
+        &:focus {
+          background: $textBgColor;
+        }
+
+        .state {
+          appearance: none;
+          display: inline-block;
+          position: relative;
+          margin: 0 .3125rem 0 0;
+          width: 1.25rem;
+          height: 1.25rem;
+          border: .125rem solid #111;
+          vertical-align: top;
+          border-radius: .1875rem;
+
+          &:checked {
+            background: #111;
+
+            &+.todoTitle {
+              color: gray;
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        .editor {
+          font-size: 1rem;
+          position: absolute;
+          width: 31.25rem;
+          border: none;
+          border-bottom: .0625rem solid #111;
+          background: inherit;
+        }
+
+        .delete {
+          float: right;
+          width: 1.25rem;
+          height: 1.25rem;
+          border: .125rem solid #51E3A4;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
